@@ -1,0 +1,25 @@
+.flexible-modal-gallery {
+
+    .thumbs-holder {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 0 -.5rem;
+
+        .thumb-holder {
+            flex: 1 25%;
+            padding: .5rem;
+        }
+
+    }
+
+    @media screen and ( max-width: 500px ) {
+
+        .thumbs-holder .thumb-holder {
+            flex-basis: 50%;
+        }
+
+    }
+
+}

@@ -1,0 +1,47 @@
+import React from 'react';
+import { Link } from 'react-router';
+
+import Icons from './Icons';
+import StopSearch from './StopSearch';
+
+const Home = React.createClass( {
+
+	renderHomeStyles() {
+
+		if ( null === smartguide.options.landing_bg || !smartguide.options.landing_bg.hasOwnProperty( 'sizes' ) || !smartguide.options.landing_bg.sizes.hasOwnProperty( 'large' ) ) {
+			return null;
+		}
+
+		return {
+			backgroundImage: 'url(' + smartguide.options.landing_bg.sizes.large + ')'
+		}
+
+	},
+
+	render() {
+
+		return(
+
+			<div className="home-container wrap" style={this.renderHomeStyles()}>
+
+				<div className="wrap">
+
+					<p className="description">Enter the stop number from the label next to the artwork.</p>
+
+					<StopSearch />
+
+					<p className="index-link-holder"><Link to={smartguide.guide_path + 'stop/0'}>View Index</Link></p>
+
+					<p className="landing-content">{smartguide.options.landing_content}</p>
+
+				</div>
+
+			</div>
+
+		);
+
+	}
+
+} );
+
+export default Home;

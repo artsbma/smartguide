@@ -1,0 +1,107 @@
+.flexible-gallery {
+	margin: 0;
+	padding: 0;
+
+	.photo-holder {
+
+		.photo {
+			display: none;
+			position: relative;
+		}
+
+		.photo.active {
+			display: block;
+		}
+
+		.photo img {
+			display: block;
+			margin: 0 auto;
+		}
+
+		.description-holder {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			background: rgba( 0, 0, 0, .5 );
+			color: #fff;
+			font-size: .9375rem;
+			overflow: auto;
+
+			.inner {
+				position: relative;
+				min-height: 100%;
+				padding: 1em 1em 2em;
+			}
+
+			.title,
+			.caption {
+				display: none;
+				text-align: center;
+			}
+
+			.description {
+				display: none;
+			}
+
+			.show-collapsed {
+				display: block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			&.expanded {
+				height: 100%;
+
+				.title {
+					font-size: 1.5rem;
+					font-weight: 100;
+				}
+
+				.title,
+				.caption {
+					margin-bottom: 1rem;
+				}
+
+				.title,
+				.caption,
+				.description {
+					display: block;
+					white-space: pre-wrap;
+				}
+
+			}
+
+		}
+
+		.expand-toggle {
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			font-weight: bold;
+			transform: translateX(-50%);
+		}
+
+	}
+
+	.thumbs-holder {
+		text-align: center;
+		overflow-x: auto;
+		white-space: nowrap;
+		-webkit-overflow-scrolling: touch;
+
+		.thumb {
+			display: inline-block;
+			margin: .5rem;
+		}
+
+		.thumb img {
+			display: inline-block;
+			width: 100px;
+			height: auto;
+		}
+
+	}
+
+}

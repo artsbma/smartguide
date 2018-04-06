@@ -1,0 +1,24 @@
+/**
+ * Variables & Mixins
+ */
+
+$grey: #7f7f7f;
+$darkergrey: #888;
+$lightgrey: #ccc;
+$lightergrey: #f0f0f0;
+$textblack: #000;
+$offwhite:  #f8f8f8;
+$buttonred: #ed3733;
+$border: 1px solid #000;
+$sans: helvetica, sans-serif;
+$header_height: 58px;
+$button_color: #5e5e5e;
+
+// Clearfix
+@mixin clearfix() {
+	&:after {
+		clear: both;
+		content: '';
+		display: table;
+	}
+}

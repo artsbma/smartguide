@@ -1,0 +1,61 @@
+.stop-search {
+
+	.stop-number-label {
+		position: relative;
+		display: block;
+
+		.icon {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+
+			* {
+				fill: $darkergrey;
+			}
+		}
+
+	}
+
+	.stop-number {
+		display: block;
+		width: 100%;
+		margin-bottom: 1rem;
+		padding: .5rem .75rem .25rem 3.5rem;
+		font-size: 3rem;
+		border-radius: 0;
+
+		&::-webkit-input-placeholder {
+			padding-top: 1.5rem;
+			color: $darkergrey;
+			font-size: .875rem;
+			font-weight: bold;
+		}
+		&::-moz-placeholder {
+			padding-top: 1.5rem;
+			color: $darkergrey;
+			font-size: .875rem;
+			font-weight: bold;
+		}
+		&:-ms-input-placeholder {
+			padding-top: 1.5rem;
+			color: $darkergrey;
+			font-size: .875rem;
+			font-weight: bold;
+		}
+		&:-moz-placeholder {
+			padding-top: 1.5rem;
+			color: $darkergrey;
+			font-size: .875rem;
+			font-weight: bold;
+		}
+		
+	}
+
+	.stop-submit {
+		display: block;
+		width: 100%;
+		padding: 1rem;
+	}
+
+}

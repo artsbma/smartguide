@@ -1,0 +1,32 @@
+/**
+ * Structure
+ */
+
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	background: #fff;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.wrap {
+	padding: 1rem 5%;
+}
+
+.main-container {
+	position: relative;
+	min-height: 100%;
+	padding-top: $header_height;
+	overflow: hidden;
+}

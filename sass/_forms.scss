@@ -1,0 +1,108 @@
+input[type="submit"],
+input[type="button"],
+button,
+a.button {
+	padding: .5rem .75rem;
+	background-color: #ebebeb;
+	color: $button_color;
+	font-size: .75rem;
+	font-family: $sans;
+	font-weight: normal;
+	text-transform: uppercase;
+	text-decoration: none;
+	line-height: normal;
+	letter-spacing: 1px;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	cursor: pointer;
+	transition: background-color .15s cubic-bezier(.33,.66,.66,1), padding .25s;
+	-webkit-appearance: none;
+	outline: none;
+
+	.icon * {
+		fill: $button_color;
+	}
+
+	&:hover {
+		background: #ccc;
+		color: #000;
+
+		.icon * {
+			fill: #000;
+		}
+
+	}
+
+	&.button-transparent {
+		background: none;
+		color: $grey;
+
+		.icon * {
+			fill: $grey;
+		}
+
+		&:hover {
+			background: $lightgrey;
+			color: #000;
+
+			.icon * {
+				fill: #000;
+			}
+
+		}
+
+		&.button-white {
+			color: #fff;
+			
+			&:hover {
+				background: none;
+				color: #fff;
+			}
+
+			.icon *,
+			&:hover .icon * {
+				fill: #fff;
+			}
+
+		}
+	}
+
+	&.loading {
+		padding-right: 32px;
+		background-image: url( 'images/button-loader.gif' );
+		background-repeat: no-repeat;
+		background-position: right 8px center;
+		background-size: 16px;
+
+		&:hover {
+			background-color: #ebebeb;
+			color: $button_color;
+		}
+
+	}
+
+}
+
+/* form and search stuff */
+
+input[type="search"],
+input[type="submit"] {
+	-webkit-appearance: none;
+}
+
+input[type=text],
+input[type=number],
+input[type=tel],
+input[type=search] {
+	outline: none;
+	-webkit-appearance: none;
+
+	&.transparent {
+		background: none;
+		border: none;
+		border-bottom: 1px solid $darkergrey;
+		color: $darkergrey;
+	}
+
+}
