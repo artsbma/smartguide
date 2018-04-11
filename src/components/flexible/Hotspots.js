@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactGA from 'react-ga';
 
 import Modal from '../Modal';
 
@@ -30,11 +29,6 @@ const Hotspots = React.createClass( {
 			<div key={i}>
 				<button className="hotspot" style={styles} onClick={ (e) => {
 					e.preventDefault();
-					ReactGA.event( {
-						category: 'Hotspot',
-						action: 'Expanded',
-						label: hotspot.title
-					} );
 					this.refs['hotspotModal_' + i].openModal();
 					this.setState( { hasOpened: true } );
 				} } />

@@ -1,6 +1,5 @@
 import React from 'react';
 import {PinchView} from 'react-pinch-zoom-pan';
-import ReactGA from 'react-ga';
 
 import Modal from '../Modal';
 import Icons from '../Icons';
@@ -108,11 +107,6 @@ const Gallery = React.createClass( {
 
 					<button className="button-magnify-image" onClick={ (e) => {
 						e.preventDefault();
-						ReactGA.event( {
-							category: 'Image',
-							action: 'Expanded',
-							label: photo.title
-						} );
 						this.refs['imageModal_' + i].openModal();
 					} }>
 						<Icons icon="zoom" />
@@ -139,12 +133,6 @@ const Gallery = React.createClass( {
 	changePhoto( e, i ) {
 
 		e.preventDefault();
-
-		ReactGA.event( {
-			category: 'Image',
-			action: 'Viewed',
-			label: this.props.photos[i].title
-		} );
 
 		this.setState( {
 			active: i,

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactGA from 'react-ga';
 
 import AudioPlayer from './AudioPlayer';
 import Modal from '../Modal';
@@ -8,12 +7,6 @@ import Icons from '../Icons';
 const Audio = React.createClass( {
 
 	openAudioPlayer( e ) {
-
-		ReactGA.event( {
-			category: 'Audio',
-			action: 'Opened',
-			label: this.props.content.title
-		} );
 
 		e.preventDefault();
 

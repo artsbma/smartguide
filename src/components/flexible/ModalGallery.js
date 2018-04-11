@@ -1,6 +1,5 @@
 import React from 'react';
 import {PinchView} from 'react-pinch-zoom-pan';
-import ReactGA from 'react-ga';
 
 import Modal from '../Modal';
 
@@ -15,11 +14,7 @@ const ModalGallery = React.createClass( {
                 <a href={photo.url} onClick={(e)=> {
 
                     e.preventDefault();
-                    ReactGA.event( {
-                        category: 'Image',
-                        action: 'Expanded',
-                        label: photo.title
-                    } );
+
                     this.refs['imageModal_' + i].openModal();
 
                 } } className="thumb">

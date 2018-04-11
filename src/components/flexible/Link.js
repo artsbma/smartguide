@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactGA from 'react-ga';
 
 import Modal from '../Modal';
 import Icons from '../Icons';
@@ -15,12 +14,6 @@ const Link = React.createClass( {
 			<div>
 
 				<a className="flexible-block flexible-link" href={link.url} target="_blank" onClick={ (e) => {
-
-					ReactGA.event( {
-						category: 'Link',
-						action: 'Opened',
-						label: link.label
-					} );
 
 					if ( link.new_window ) {
 						return;

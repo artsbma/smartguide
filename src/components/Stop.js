@@ -1,7 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
 import {PinchView} from 'react-pinch-zoom-pan';
-import ReactGA from 'react-ga';
 
 var Entities = require('html-entities').AllHtmlEntities;
 var entities = new Entities();
@@ -61,11 +60,6 @@ const Stop = React.createClass( {
 
 				<button className="button-magnify-image" onClick={ (e) => {
 					e.preventDefault();
-					ReactGA.event( {
-						category: 'Image',
-						action: 'Expanded',
-						label: 'Stop ' + stop.stop_meta.stop_number + ' Featured Image'
-					} );
 					this.refs.featuredImageModal.openModal();
 				} }>
 					<Icons icon="zoom" />

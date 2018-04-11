@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactGA from 'react-ga';
 
 const HeaderBlock = React.createClass( {
 
@@ -10,12 +9,6 @@ const HeaderBlock = React.createClass( {
 		if ( !this.props.canToggle ) {
 			return;
 		}
-
-		ReactGA.event( {
-			category: 'Header',
-			action: this.props.sectionState.open ? 'Collapsed' : 'Expanded',
-			label: this.props.children
-		} );
 
 		this.props.toggleOpen();
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactGA from 'react-ga';
 
 import Icons from '../Icons';
 
@@ -93,12 +92,6 @@ const AudioPlayer = React.createClass( {
 
 							e.preventDefault();
 
-							ReactGA.event( {
-								category: 'Audio',
-								action: this.state.isPlaying ? 'Pause' : 'Play',
-								label: this.props.audioTitle
-							} );
-
 							if ( this.state.isPlaying ) {
 
 								this.refs.player.pause();
@@ -136,7 +129,7 @@ const AudioPlayer = React.createClass( {
 				</div>
 
 				<audio ref="player" src={this.props.audioFile} />
-				
+
 			</div>
 
 		);

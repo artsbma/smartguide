@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactGA from 'react-ga';
 
 import Modal from '../Modal';
 import Icons from '../Icons';
@@ -19,12 +18,6 @@ const Video = React.createClass( {
 			<div>
 
 				<a href="#" className="flexible-link flexible-block" onClick={ (e) => {
-
-					ReactGA.event( {
-						category: 'Video',
-						action: 'Opened',
-						label: this.props.video.title
-					} );
 
 					e.preventDefault();
 					this.refs.videoModal.openModal();
