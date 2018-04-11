@@ -30,8 +30,6 @@ const Home = React.createClass( {
 
 					<StopSearch />
 
-					<p className="index-link-holder"><Link to={smartguide.guide_path + 'stop/0'}>View Index</Link></p>
-
 					<p className="landing-content">{smartguide.options.landing_content}</p>
 
 				</div>
