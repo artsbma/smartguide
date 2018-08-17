@@ -6,7 +6,13 @@
  * Author URI: http://artsbma.org
  */
 
- require( plugin_dir_path( __FILE__ ) . 'inc/acf-fields.php' );
+define( 'SMARTGUIDE_URL', plugin_dir_url( __FILE__ ) );
+
+// Advanced Custom Fields
+require( plugin_dir_path( __FILE__ ) . 'inc/acf-fields.php' );
+
+// Hotspots
+require( plugin_dir_path( __FILE__ ) . 'inc/class-smartguide-hotspots.php' );
 
 /**
  * Add guide query var
