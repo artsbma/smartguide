@@ -63,22 +63,26 @@ function doSass() {
 		} );
 };
 
-gulp.task( 'sass:build', function() {
+gulp.task( 'sass:build', function( cb ) {
 	doSass();
+	cb();
 } );
 
 gulp.task( 'sass:watch', function() {
 	doSass();
-	gulp.watch( [ './sass/**/*.scss' ], doSass );
+	gulp.watch( './sass/**/*.scss', function( cb ) {
+		doSass();
+		cb();
+	} );
 } );
 
 gulp.task( 'react:build', function( done ) {
 	return buildScript(false); // this will once run once because we set watch to false
 } );
 
-gulp.task( 'react:watch', function() {
+gulp.task( 'react:watch', function( cb ) {
 	return buildScript(true); // browserify watch for JS changes
 } );
 
-gulp.task( 'default', ['react:build', 'sass:build'] );
-gulp.task( 'watch',   ['react:watch', 'sass:watch'] );
+gulp.task( 'default', gulp.parallel( ['react:build', 'sass:build'] ) );
+gulp.task( 'watch', gulp.parallel( ['react:watch', 'sass:watch'] ) );
