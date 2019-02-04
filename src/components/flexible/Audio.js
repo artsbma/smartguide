@@ -4,15 +4,25 @@ import AudioPlayer from './AudioPlayer';
 import Modal from '../Modal';
 import Icons from '../Icons';
 
-const Audio = React.createClass( {
+class Audio extends React.Component {
+
+	constructor( props ) {
+
+		super( props );
+
+		this.audioModal = React.createRef();
+
+		this.openAudioPlayer = this.openAudioPlay.bind( this );
+
+	}
 
 	openAudioPlayer( e ) {
 
 		e.preventDefault();
 
-		this.refs.audioModal.openModal();
+		this.audioModal.current.openModal();
 
-	},
+	}
 
 	render() {
 
@@ -33,8 +43,8 @@ const Audio = React.createClass( {
 					{title}
 				</a>
 
-				<Modal ref="audioModal" modal={this.props.modal} openModal={this.props.openModal} closeModal={this.props.closeModal}>
-					<AudioPlayer ref="audioPlayer" audioFile={audio_file.url} audioTitle={title} audioDescription={description} audioImage={image} modal={this.props.modal} />
+				<Modal ref={this.audioModal} modal={this.props.modal} openModal={this.props.openModal} closeModal={this.props.closeModal}>
+					<AudioPlayer audioFile={audio_file.url} audioTitle={title} audioDescription={description} audioImage={image} modal={this.props.modal} />
 				</Modal>
 
 			</div>
@@ -43,6 +53,6 @@ const Audio = React.createClass( {
 
 	}
 
-} );
+}
 
 export default Audio;

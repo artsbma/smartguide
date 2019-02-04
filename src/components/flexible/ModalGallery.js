@@ -3,7 +3,16 @@ import {PinchView} from 'react-pinch-zoom-pan';
 
 import Modal from '../Modal';
 
-const ModalGallery = React.createClass( {
+class ModalGallery extends React.Component {
+
+	constructor( props ) {
+
+		super( props );
+
+		this.renderThumb = this.renderThumb.bind( this );
+		this.renderThumbs = this.renderThumbs.bind( this );
+
+	}
 
 	renderThumb( photo, i ) {
 
@@ -31,7 +40,7 @@ const ModalGallery = React.createClass( {
 
 		);
 
-	},
+	}
 
 	renderThumbs( photos ) {
 
@@ -43,7 +52,7 @@ const ModalGallery = React.createClass( {
 
 		return <div className="thumbs-holder">{photos.map(this.renderThumb)}</div>
 
-	},
+	}
 
 	render() {
 
@@ -65,6 +74,6 @@ const ModalGallery = React.createClass( {
 
 	}
 
-} );
+}
 
 export default ModalGallery;

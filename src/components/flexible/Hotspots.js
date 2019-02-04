@@ -2,21 +2,26 @@ import React from 'react';
 
 import Modal from '../Modal';
 
-const Hotspots = React.createClass( {
+class Hotspots extends React.Component {
 
-	getInitialState() {
+	constructor( props ) {
 
-		return {
+		super( props );
+
+		this.state = {
 			hasOpened: false
 		};
 
-	},
+		this.renderContent = this.renderContent.bind( this );
+		this.renderHotspot = this.renderHotspot.bind( this );
+
+	}
 
 	renderContent( content ) {
 
 		return { __html: content };
 
-	},
+	}
 
 	renderHotspot( hotspot, i ) {
 
@@ -42,7 +47,7 @@ const Hotspots = React.createClass( {
 			</div>
 		);
 
-	},
+	}
 
 	render() {
 
@@ -74,6 +79,6 @@ const Hotspots = React.createClass( {
 
 	}
 
-} );
+}
 
 export default Hotspots;

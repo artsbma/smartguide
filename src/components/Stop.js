@@ -12,7 +12,19 @@ import Modal from './Modal';
 import Icons from './Icons';
 import Section from './flexible/Section';
 
-const Stop = React.createClass( {
+class Stop extends React.Component {
+
+	constructor( props ) {
+
+		super( props );
+
+		this.featuredImageModal = React.createRef();
+
+		this.renderContent = this.renderContent.bind( this );
+		this.renderFlexContent = this.renderFlexContent.bind( this );
+		this.renderFeaturedImage = this.renderFeaturedImage.bind( this );
+
+	}
 
 	componentDidUpdate() {
 
@@ -22,7 +34,7 @@ const Stop = React.createClass( {
 
 		}
 
-	},
+	}
 
 	componentDidMount() {
 
@@ -32,13 +44,13 @@ const Stop = React.createClass( {
 
 		}
 
-	},
+	}
 
 	renderContent( content ) {
 
 		return { __html: content };
 
-	},
+	}
 
 	renderFlexContent( section, i ) {
 
@@ -46,7 +58,7 @@ const Stop = React.createClass( {
 
 		return <Section key={stopNumber + '_' + i} section={section} stops={this.props.stops} stopNumber={stopNumber}  modal={this.props.modal} openModal={this.props.openModal} closeModal={this.props.closeModal} closeModal={this.props.closeModal} />
 
-	},
+	}
 
 	renderFeaturedImage( stop ) {
 
@@ -60,14 +72,14 @@ const Stop = React.createClass( {
 
 				<button className="button-magnify-image" onClick={ (e) => {
 					e.preventDefault();
-					this.refs.featuredImageModal.openModal();
+					this.featuredImageModal.openModal();
 				} }>
 					<Icons icon="zoom" />
 				</button>
 
 				<img src={stop.featured_images.full} className="stop-featured-image" />
 
-				<Modal ref="featuredImageModal" modal={this.props.modal} openModal={this.props.openModal} closeModal={this.props.closeModal} classes="image-zoom-modal">
+				<Modal ref={this.featuredImageModal} modal={this.props.modal} openModal={this.props.openModal} closeModal={this.props.closeModal} classes="image-zoom-modal">
 					<PinchView backgroundColor="#000" maxScale={5}>
 						<img src={stop.featured_images.full} className="stop-featured-image" />
 					</PinchView>
@@ -77,7 +89,7 @@ const Stop = React.createClass( {
 
 		);
 
-	},
+	}
 
 	render() {
 
@@ -138,6 +150,6 @@ const Stop = React.createClass( {
 
 	}
 
-} );
+}
 
 export default Stop;

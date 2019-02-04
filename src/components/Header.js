@@ -3,11 +3,27 @@ import { Link, browserHistory } from 'react-router';
 
 import Icons from './Icons';
 
-const Header = React.createClass( {
+class Header extends React.Component {
+
+	constructor( props ) {
+
+		super( props );
+
+		this.stopInput = React.createRef();
+
+		this.goToStop = this.goToStop.bind( this );
+		this.handleSearchSubmit = this.handleSearchSubmit.bind( this );
+		this.handleBlur = this.handleBlur.bind( this );
+		this.handleCloseModal = this.handleCloseModal.bind( this );
+		this.getSearchClassNames = this.getSearchClassNames.bind( this );
+		this.renderSearchForm = this.renderSearchForm.bind( this );
+		this.renderLogo = this.renderLogo.bind( this );
+
+	}
 
 	goToStop() {
 
-		const stop = this.refs.stop;
+		const stop = this.stopInput.current;
 
 		browserHistory.push( smartguide.guide_path + 'stop/' + stop.value );
 
@@ -15,13 +31,13 @@ const Header = React.createClass( {
 
 		stop.blur();
 
-	},
+	}
 
 	handleSearchSubmit(e) {
 
 		e.preventDefault();
 
-		const stop = this.refs.stop;
+		const stop = this.stopInput.current;
 
 		if ( !stop.value ) {
 
@@ -33,11 +49,11 @@ const Header = React.createClass( {
 
 		this.goToStop();
 
-	},
+	}
 
 	handleBlur() {
 
-		const stop = this.refs.stop;
+		const stop = this.stopInput.current;
 
 		if ( !stop.value ) {
 			return;
@@ -45,7 +61,7 @@ const Header = React.createClass( {
 
 		this.goToStop();
 
-	},
+	}
 
 	handleCloseModal(e) {
 
@@ -53,7 +69,7 @@ const Header = React.createClass( {
 
 		this.props.closeModal();
 
-	},
+	}
 
 	getSearchClassNames() {
 
@@ -65,7 +81,7 @@ const Header = React.createClass( {
 
 		return classNames;
 
-	},
+	}
 
 	getModalCloseClassNames() {
 
@@ -77,7 +93,7 @@ const Header = React.createClass( {
 
 		return classNames;
 
-	},
+	}
 
 	renderSearchForm() {
 
@@ -87,13 +103,13 @@ const Header = React.createClass( {
 
 				<button className="search-icon"><Icons icon="search" /></button>
 
-				<input type="number" pattern="[0-9]*" ref="stop" className="header-stop-number" placeholder="Enter Stop #" onBlur={this.handleBlur} />
+				<input type="number" pattern="[0-9]*" ref={this.stopInput} className="header-stop-number" placeholder="Enter Stop #" onBlur={this.handleBlur} />
 
 			</form>
 
 		);
 
-	},
+	}
 
 	renderLogo() {
 
@@ -111,7 +127,7 @@ const Header = React.createClass( {
 
 		);
 
-	},
+	}
 
 	render() {
 
@@ -136,6 +152,6 @@ const Header = React.createClass( {
 
 	}
 
-} );
+}
 
 export default Header;

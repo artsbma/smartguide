@@ -1,12 +1,20 @@
 import React from 'react';
 
-const ContentBlock = React.createClass( {
+class ContentBlock extends React.Component {
+
+	constructor( props ) {
+
+		super( props );
+
+		this.renderContent = this.renderContent.bind( this );
+
+	}
 
 	renderContent( content ) {
 
 		return { __html: content }
 
-	},
+	}
 
 	render() {
 
@@ -18,6 +26,6 @@ const ContentBlock = React.createClass( {
 
 	}
 
-} );
+}
 
 export default ContentBlock;

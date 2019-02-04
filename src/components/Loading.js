@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Loading = React.createClass( {
+class Loading extends React.Component {
 
 	render() {
 
@@ -16,6 +16,6 @@ const Loading = React.createClass( {
 
 	}
 
-} );
+}
 
 export default Loading;

@@ -3,13 +3,23 @@ import { browserHistory } from 'react-router';
 
 import Icons from './Icons';
 
-const StopSearch = React.createClass( {
+class StopSearch extends React.Component {
+
+	constructor( props ) {
+
+		super( props );
+
+		this.stopInput = React.createRef();
+
+		this.handleSubmit = this.handleSubmit.bind( this );
+
+	}
 
 	handleSubmit(e) {
 
 		e.preventDefault();
 
-		const stop = this.refs.stop;
+		const stop = this.stopInput.current;
 
 		if ( !stop.value ) {
 
@@ -25,7 +35,7 @@ const StopSearch = React.createClass( {
 
 		stop.blur();
 
-	},
+	}
 
 	render() {
 
@@ -35,7 +45,7 @@ const StopSearch = React.createClass( {
 
 				<label className="stop-number-label">
 					<Icons icon="search" />
-					<input type="number" pattern="[0-9]*" className="stop-number transparent" name="stop-number" ref="stop" placeholder="Stop Number" />
+					<input type="number" pattern="[0-9]*" className="stop-number transparent" name="stop-number" ref={this.stopInput} placeholder="Stop Number" />
 				</label>
 
 				<input type="submit" value="Enter" className="stop-submit button button-big" />
@@ -46,6 +56,6 @@ const StopSearch = React.createClass( {
 
 	}
 
-} );
+}
 
 export default StopSearch;

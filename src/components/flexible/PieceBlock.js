@@ -3,7 +3,15 @@ import React from 'react';
 var Entities = require('html-entities').AllHtmlEntities;
 var entities = new Entities();
 
-const PieceBlock = React.createClass( {
+class PieceBlock extends React.Component {
+
+	constructor( props ) {
+
+		super( props );
+
+		this.renderMetaItem = this.renderMetaItem.bind( this );
+
+	}
 
 	renderMetaItem( item, i ) {
 
@@ -13,7 +21,7 @@ const PieceBlock = React.createClass( {
 
 		return <li key={i}>{entities.decode(item.value)}</li>
 
-	},
+	}
 
 	render() {
 
@@ -29,6 +37,6 @@ const PieceBlock = React.createClass( {
 
 	}
 
-} );
+}
 
 export default PieceBlock;

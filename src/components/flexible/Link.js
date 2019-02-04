@@ -3,7 +3,15 @@ import React from 'react';
 import Modal from '../Modal';
 import Icons from '../Icons';
 
-const Link = React.createClass( {
+class Link extends React.Component {
+
+	constructor( props ) {
+
+		super( props );
+
+		this.linkModal = React.createRef();
+
+	}
 
 	render() {
 
@@ -21,14 +29,14 @@ const Link = React.createClass( {
 
 					e.preventDefault();
 
-					this.refs.linkModal.openModal();
+					this.linkModal.current.openModal();
 
 				} }>
 					<Icons icon={ link.icon ? link.icon.toLowerCase() : 'link' } />
 					{link.label}
 				</a>
 
-				<Modal ref="linkModal" modal={this.props.modal} openModal={this.props.openModal} closeModal={this.props.closeModal}>
+				<Modal ref={this.linkModal} modal={this.props.modal} openModal={this.props.openModal} closeModal={this.props.closeModal}>
 					<iframe className="link-iframe" src={link.url} />
 				</Modal>
 
@@ -38,6 +46,6 @@ const Link = React.createClass( {
 
 	}
 
-} );
+}
 
 export default Link;

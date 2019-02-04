@@ -4,7 +4,15 @@ import { Link } from 'react-router';
 import Icons from './Icons';
 import StopSearch from './StopSearch';
 
-const Home = React.createClass( {
+class Home extends React.Component {
+
+	constructor( props ) {
+
+		super( props );
+
+		this.renderHomeStyles = this.renderHomeStyles.bind( this );
+
+	}
 
 	renderHomeStyles() {
 
@@ -16,7 +24,7 @@ const Home = React.createClass( {
 			backgroundImage: 'url(' + smartguide.options.landing_bg.sizes.large + ')'
 		}
 
-	},
+	}
 
 	render() {
 
@@ -40,6 +48,6 @@ const Home = React.createClass( {
 
 	}
 
-} );
+}
 
 export default Home;

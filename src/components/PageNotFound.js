@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const PageNotFound = React.createClass( {
+class PageNotFound extends React.Component {
 
 	render() {
 
@@ -19,6 +19,6 @@ const PageNotFound = React.createClass( {
 
 	}
 
-} );
+}
 
 export default PageNotFound;

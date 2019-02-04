@@ -15,15 +15,20 @@ import Video from './Video';
 import StopsList from './StopsList';
 import Hotspots from './Hotspots';
 
-const Section = React.createClass( {
+class Section extends React.Component {
 
-	getInitialState() {
+	constructor( props ) {
 
-		return {
+		super( props );
+
+		this.state = {
 			open: false
 		};
 
-	},
+		this.toggleOpen = this.toggleOpen.bind( this );
+		this.renderFlexBlock = this.renderFlexBlock.bind( this );
+
+	}
 
 	componentDidUpdate() {
 
@@ -38,7 +43,7 @@ const Section = React.createClass( {
 
 		}
 
-	},
+	}
 
 	toggleOpen() {
 
@@ -52,7 +57,7 @@ const Section = React.createClass( {
 
 		}
 
-	},
+	}
 
 	renderFlexBlock( flex, i ) {
 
@@ -102,7 +107,7 @@ const Section = React.createClass( {
 
 		}
 
-	},
+	}
 
 	render() {
 
@@ -122,6 +127,6 @@ const Section = React.createClass( {
 
 	}
 
-} );
+}
 
 export default Section;

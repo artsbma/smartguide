@@ -4,7 +4,15 @@ import { Link } from 'react-router';
 var Entities = require('html-entities').AllHtmlEntities;
 var entities = new Entities();
 
-const StopLink = React.createClass( {
+class StopLink extends React.Component {
+
+	constructor( props ) {
+
+		super( props );
+
+		this.showThumb = this.showThumb.bind( this );
+
+	}
 
 	showThumb( stopThumb ) {
 
@@ -14,7 +22,7 @@ const StopLink = React.createClass( {
 
 		return <img src={stopThumb} className="thumb" />
 
-	},
+	}
 
 	render() {
 
@@ -34,6 +42,6 @@ const StopLink = React.createClass( {
 
 	}
 
-} );
+}
 
 export default StopLink;

@@ -2,7 +2,15 @@ import React from 'react';
 
 import StopLink from './StopLink';
 
-const StopsList = React.createClass( {
+class StopsList extends React.Component {
+
+	constructor( props ) {
+
+		super( props );
+
+		this.renderStopLink = this.renderStopLink.bind( this );
+
+	}
 
 	renderStopLink( stopNumber, i ) {
 
@@ -10,7 +18,7 @@ const StopsList = React.createClass( {
 
 		return <StopLink key={i} stopNumber={stopNumber} stopTitle={stop.title} stopThumb={stop.thumb} />
 
-	},
+	}
 
 	render() {
 
@@ -32,6 +40,6 @@ const StopsList = React.createClass( {
 
 	}
 
-} );
+}
 
 export default StopsList;

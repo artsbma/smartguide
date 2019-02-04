@@ -4,16 +4,25 @@ import {PinchView} from 'react-pinch-zoom-pan';
 import Modal from '../Modal';
 import Icons from '../Icons';
 
-const Gallery = React.createClass( {
+class Gallery extends React.Component {
 
-	getInitialState() {
+	constructor( props ) {
 
-		return {
+		super( props );
+
+		this.state = {
 			active: 0,
 			expanded: false
 		};
 
-	},
+		this.toggleDescription = this.toggleDescription.bind( this );
+		this.renderPhotoDescription = this.renderPhotoDescription.bind( this );
+		this.renderPhoto = this.renderPhoto.bind( this );
+		this.changePhoto = this.changePhoto.bind( this );
+		this.renderThumb = this.renderThumb.bind( this );
+		this.renderThumbs = this.renderThumbs.bind( this );
+
+	}
 
 	toggleDescription(e) {
 
@@ -33,7 +42,7 @@ const Gallery = React.createClass( {
 
 		this.setState( { expanded: newState } );
 
-	},
+	}
 
 	renderPhotoDescription( photo ) {
 
@@ -89,7 +98,7 @@ const Gallery = React.createClass( {
 
 		);
 
-	},
+	}
 
 	renderPhoto( photo, i ) {
 
@@ -128,7 +137,7 @@ const Gallery = React.createClass( {
 
 		);
 
-	},
+	}
 
 	changePhoto( e, i ) {
 
@@ -139,7 +148,7 @@ const Gallery = React.createClass( {
 			expanded: false
 		} );
 
-	},
+	}
 
 	renderThumb( photo, i ) {
 
@@ -157,7 +166,7 @@ const Gallery = React.createClass( {
 
 		);
 
-	},
+	}
 
 	renderThumbs( photos ) {
 
@@ -169,7 +178,7 @@ const Gallery = React.createClass( {
 
 		return <div className="thumbs-holder">{photos.map(this.renderThumb)}</div>
 
-	},
+	}
 
 	render() {
 
@@ -195,6 +204,6 @@ const Gallery = React.createClass( {
 
 	}
 
-} );
+}
 
 export default Gallery;

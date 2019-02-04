@@ -1,6 +1,15 @@
 import React from 'react';
 
-const HeaderBlock = React.createClass( {
+class HeaderBlock extends React.Component {
+
+	constructor( props ) {
+
+		super( props );
+
+		this.toggleSection = this.toggleSection.bind( this );
+		this.renderButton = this.renderButton.bind( this );
+
+	}
 
 	toggleSection(e) {
 
@@ -12,7 +21,7 @@ const HeaderBlock = React.createClass( {
 
 		this.props.toggleOpen();
 
-	},
+	}
 
 	renderButton() {
 
@@ -29,7 +38,7 @@ const HeaderBlock = React.createClass( {
 
 		);
 
-	},
+	}
 
 	render() {
 
@@ -45,6 +54,6 @@ const HeaderBlock = React.createClass( {
 
 	}
 
-} );
+}
 
 export default HeaderBlock;

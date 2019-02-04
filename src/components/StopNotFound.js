@@ -2,7 +2,7 @@ import React from 'react';
 
 import StopSearch from './StopSearch';
 
-const StopNotFound = React.createClass( {
+class StopNotFound extends React.Component {
 
 	render() {
 
@@ -20,6 +20,6 @@ const StopNotFound = React.createClass( {
 
 	}
 
-} );
+}
 
 export default StopNotFound;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Icons = React.createClass( {
+class Icons extends React.Component {
 
 	render() {
 
@@ -35,6 +35,6 @@ const Icons = React.createClass( {
 
 	}
 
-} );
+}
 
 export default Icons;

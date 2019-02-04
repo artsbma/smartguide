@@ -1,14 +1,22 @@
 import React from 'react';
 
-const Modal = React.createClass( {
+class Modal extends React.Component {
 
-	getInitialState() {
+	constructor( props ) {
 
-		return {
+		super( props );
+
+		this.state = {
 			open: false
 		};
 
-	},
+		this.getClassNames = this.getClassNames.bind( this );
+		this.getOverlayClassNames = this.getOverlayClassNames.bind( this );
+		this.renderModalContent = this.renderModalContent.bind( this );
+		this.openModal = this.openModal.bind( this );
+		this.renderContent = this.renderContent.bind( this );
+
+	}
 
 	componentDidUpdate() {
 
@@ -16,7 +24,7 @@ const Modal = React.createClass( {
 			this.setState( { open: false } );
 		}
 
-	},
+	}
 
 	getClassNames() {
 
@@ -32,7 +40,7 @@ const Modal = React.createClass( {
 
 		return classNames;
 
-	},
+	}
 
 	getOverlayClassNames() {
 
@@ -48,13 +56,13 @@ const Modal = React.createClass( {
 
 		return classNames;
 
-	},
+	}
 
 	renderModalContent( content ) {
 
 		return { __html: content };
 
-	},
+	}
 
 	openModal() {
 
@@ -62,7 +70,7 @@ const Modal = React.createClass( {
 
 		this.setState( { open: true } );
 
-	},
+	}
 
 	renderContent() {
 
@@ -72,7 +80,7 @@ const Modal = React.createClass( {
 
 		return this.props.children;
 
-	},
+	}
 
 	render() {
 
@@ -95,6 +103,6 @@ const Modal = React.createClass( {
 
 	}
 
-} );
+}
 
 export default Modal;

@@ -2,15 +2,28 @@ import React from 'react';
 
 import Icons from '../Icons';
 
-const AudioPlayer = React.createClass( {
+class AudioPlayer extends React.Component {
 
-	getInitialState() {
+	constructor( props ) {
 
-		return {
+		super( props );
+
+		this.state = {
 			isLoaded: false
 		};
 
-	},
+		this.currentTime = React.createRef();
+		this.scrubber = React.createRef();
+		this.totalTime = React.createRef();
+		this.player = React.createRef();
+
+		this.formatTimestamp = this.formatTimestamp.bind( this );
+		this.loadPlayer = this.loadPlayer.bind( this );
+		this.renderControlButtonIcon = this.renderControlButtonIcon.bind( this );
+		this.onScrubberChange = this.onScrubberChange.bind( this );
+		this.renderContainerStyles = this.renderContainerStyles.bind( this );
+
+	}
 
 	formatTimestamp( timestamp ) {
 
@@ -24,11 +37,14 @@ const AudioPlayer = React.createClass( {
 
 		return min + ':' + sec;
 
-	},
+	}
 
 	loadPlayer() {
 
-		const { player, scrubber, currentTime, totalTime } = this.refs;
+		const currentTime = this.currentTime.current;
+		const scrubber = this.scrubber.current;
+		const totalTime = this.totalTime.current;
+		const player = this.player.current;
 
 		scrubber.setAttribute( 'max', player.seekable.end(0) );
 
@@ -42,7 +58,7 @@ const AudioPlayer = React.createClass( {
 
 		this.setState( { isLoaded: true } );
 
-	},
+	}
 
 	renderControlButtonIcon() {
 
@@ -52,13 +68,13 @@ const AudioPlayer = React.createClass( {
 
 		return <Icons icon="play" />
 
-	},
+	}
 
 	onScrubberChange() {
 
-		this.refs.player.currentTime = this.refs.scrubber.value;
+		this.player.current.currentTime = this.scrubber.current.value;
 
-	},
+	}
 
 	renderContainerStyles() {
 
@@ -72,7 +88,7 @@ const AudioPlayer = React.createClass( {
 			backgroundImage: 'url(' + image.url + ')'
 		}
 
-	},
+	}
 
 	render() {
 
@@ -94,14 +110,14 @@ const AudioPlayer = React.createClass( {
 
 							if ( this.state.isPlaying ) {
 
-								this.refs.player.pause();
+								this.player.current.pause();
 								this.setState( { isPlaying: false } );
 
 								return;
 
 							}
 
-							this.refs.player.play();
+							this.player.current.play();
 							this.setState( { isPlaying: true } );
 
 							if ( !this.state.isLoaded ) {
@@ -114,13 +130,13 @@ const AudioPlayer = React.createClass( {
 
 						<div className="timeline">
 
-							<div className="timestamp current-time" ref="currentTime">-:--</div>
+							<div className="timestamp current-time" ref={this.currentTime}>-:--</div>
 
 							<div className="scrubber-holder">
-								<input type="range" className="scrubber" ref="scrubber" defaultValue="0" onChange={this.onScrubberChange} />
+								<input type="range" className="scrubber" ref={this.scrubber} defaultValue="0" onChange={this.onScrubberChange} />
 							</div>
 
-							<div className="timestamp total-time" ref="totalTime">-:--</div>
+							<div className="timestamp total-time" ref={this.totalTime}>-:--</div>
 
 						</div>
 
@@ -128,7 +144,7 @@ const AudioPlayer = React.createClass( {
 
 				</div>
 
-				<audio ref="player" src={this.props.audioFile} />
+				<audio ref={this.player} src={this.props.audioFile} />
 
 			</div>
 
@@ -136,6 +152,6 @@ const AudioPlayer = React.createClass( {
 
 	}
 
-} );
+}
 
 export default AudioPlayer;

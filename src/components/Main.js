@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './Header';
 import Modal from './Modal';
 
-const Main = React.createClass( {
+class Main extends React.Component {
 
 	render() {
 
@@ -25,6 +25,6 @@ const Main = React.createClass( {
 
 	}
 
-} );
+}
 
 export default Main;
