@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
+import { CSSTransition } from 'react-transition-group';
 
 import Icons from './Icons';
 
@@ -15,8 +16,6 @@ class Header extends React.Component {
 		this.handleSearchSubmit = this.handleSearchSubmit.bind( this );
 		this.handleBlur = this.handleBlur.bind( this );
 		this.handleCloseModal = this.handleCloseModal.bind( this );
-		this.getSearchClassNames = this.getSearchClassNames.bind( this );
-		this.renderSearchForm = this.renderSearchForm.bind( this );
 		this.renderLogo = this.renderLogo.bind( this );
 
 	}
@@ -71,46 +70,6 @@ class Header extends React.Component {
 
 	}
 
-	getSearchClassNames() {
-
-		let classNames = 'header-stop-search';
-
-		if ( this.props.modal.open ) {
-			classNames += ' hidden';
-		}
-
-		return classNames;
-
-	}
-
-	getModalCloseClassNames() {
-
-		let classNames = 'modal-close';
-
-		if ( !this.props.modal.open ) {
-			classNames += ' hidden';
-		}
-
-		return classNames;
-
-	}
-
-	renderSearchForm() {
-
-		return (
-
-			<form className={this.getSearchClassNames()} onSubmit={this.handleSearchSubmit}>
-
-				<button className="search-icon"><Icons icon="search" /></button>
-
-				<input type="number" pattern="[0-9]*" ref={this.stopInput} className="header-stop-number" placeholder="Enter Stop #" onBlur={this.handleBlur} />
-
-			</form>
-
-		);
-
-	}
-
 	renderLogo() {
 
 		if ( !smartguide.options.logo ) {
@@ -139,12 +98,28 @@ class Header extends React.Component {
 					{this.renderLogo()}
 				</h1>
 
-				{this.renderSearchForm()}
+				<CSSTransition in={!this.props.modal.open} timeout={1000} classNames="slide" unmountOnExit>
+					{ (state) => (
 
-				<button className={this.getModalCloseClassNames()} onClick={this.handleCloseModal}>
-					Close
-					<Icons icon="close" />
-				</button>
+						<form className="header-stop-search" onSubmit={this.handleSearchSubmit}>
+
+							<button className="search-icon"><Icons icon="search" /></button>
+
+							<input type="number" pattern="[0-9]*" ref={this.stopInput} className="header-stop-number" placeholder="Enter Stop #" onBlur={this.handleBlur} />
+
+						</form>
+
+					) }
+				</CSSTransition>
+
+				<CSSTransition in={this.props.modal.open} timeout={1000} classNames="slide" unmountOnExit>
+					{ (state) => (
+						<button className="modal-close" onClick={this.handleCloseModal}>
+							Close
+							<Icons icon="close" />
+						</button>
+					) }
+				</CSSTransition>
 
 			</header>
 

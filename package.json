@@ -40,6 +40,7 @@
     "react-router-redux": "^4.0.5",
     "react-router-scroll": "^0.4.4",
     "react-scroll-to-component": "^1.0.1",
+    "react-transition-group": "^2.6.0",
     "redux": "^3.5.2",
     "redux-thunk": "^2.3.0",
     "vinyl-buffer": "^1.0.0",
