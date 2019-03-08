@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Smartguide
- * Description: Museum Smartguide
+ * Plugin Name: smartguide
+ * Description: Museum Guide
  * Author: Birmingham Museum of Art and Range
  * Author URI: http://artsbma.org
  */
