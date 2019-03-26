@@ -36,7 +36,7 @@
     "react-mixin": "^5.0.0",
     "react-pinch-zoom-pan": "^1.4.5",
     "react-redux": "^6.0.1",
-    "react-router": "^5.0.0",
+    "react-router": "^3.0.0",
     "react-router-redux": "^4.0.8",
     "react-router-scroll": "^0.4.4",
     "react-scroll-to-component": "^1.0.2",
