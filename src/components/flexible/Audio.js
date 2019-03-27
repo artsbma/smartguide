@@ -12,7 +12,7 @@ class Audio extends React.Component {
 
 		this.audioModal = React.createRef();
 
-		this.openAudioPlayer = this.openAudioPlay.bind( this );
+		this.openAudioPlayer = this.openAudioPlayer.bind( this );
 
 	}
 
