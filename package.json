@@ -4,6 +4,9 @@
   "description": "smartguide",
   "private": true,
   "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
     "autobind-decorator": "^2.4.0",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
@@ -21,7 +24,7 @@
     "gulp-notify": "^3.2.0",
     "gulp-sass": "^4.0.2",
     "gulp-util": "^3.0.8",
-    "history": "^4.9.0",
+    "history": "^3.0.0",
     "html-entities": "^1.2.1",
     "install": "^0.12.2",
     "isomorphic-fetch": "^2.2.1",

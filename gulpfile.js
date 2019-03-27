@@ -24,7 +24,7 @@ function buildScript(watch) {
 	var props = {
 		entries: ['./src/' + file],
 		debug : true,
-		transform: [babelify.configure( { presets: ['es2015', 'react'] })]
+		transform: [babelify.configure( { presets: ['@babel/preset-env', '@babel/preset-react'] })]
 	};
 
 	var bundler = watch ? watchify(browserify(props)) : browserify(props);
