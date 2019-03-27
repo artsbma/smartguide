@@ -72,7 +72,7 @@ class Stop extends React.Component {
 
 				<button className="button-magnify-image" onClick={ (e) => {
 					e.preventDefault();
-					this.featuredImageModal.openModal();
+					this.featuredImageModal.current.openModal();
 				} }>
 					<Icons icon="zoom" />
 				</button>
