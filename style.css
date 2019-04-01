@@ -561,15 +561,6 @@ input[type=search] {
   border-bottom: 1px solid #f0f0f0;
   overflow: hidden;
   z-index: 99999; }
-  .site-header .hidden {
-    right: -100% !important; }
-  .site-header .header-stop-search {
-    right: 0;
-    transition: right 1s ease-in-out; }
-    .site-header .header-stop-search.slide-enter, .site-header .header-stop-search.slide-exit {
-      right: -100%; }
-    .site-header .header-stop-search.slide-enter-active, .site-header .header-stop-search.slide-enter-done {
-      right: 0; }
   .site-header .modal-close {
     position: absolute;
     right: 0;
@@ -598,13 +589,14 @@ input[type=search] {
 
 .header-stop-search {
   position: absolute;
-  right: -100%;
+  right: 0;
   top: 0;
   display: flex;
   height: 58px;
   background: #fff;
-  border-left: 1px solid #f0f0f0; }
-  .header-stop-search.slide-enter {
+  border-left: 1px solid #f0f0f0;
+  transition: right 1s ease-in-out; }
+  .header-stop-search.slide-enter, .header-stop-search.slide-exit {
     right: -100%; }
   .header-stop-search.slide-enter-active, .header-stop-search.slide-enter-done {
     right: 0; }

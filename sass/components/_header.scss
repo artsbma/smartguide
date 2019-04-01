@@ -11,26 +11,6 @@
 	overflow: hidden;
 	z-index: 99999;
 
-	.hidden {
-		right: -100% !important;
-	}
-
-	.header-stop-search {
-		right: 0;
-		transition: right 1s ease-in-out;
-
-		&.slide-enter,
-		&.slide-exit {
-			right: -100%;
-		}
-
-		&.slide-enter-active,
-		&.slide-enter-done {
-			right: 0;
-		}
-
-	}
-
 	.modal-close {
 		position: absolute;
 		right: 0;
@@ -77,14 +57,16 @@
 
 .header-stop-search {
 	position: absolute;
-	right: -100%;
+	right: 0;
 	top: 0;
 	display: flex;
 	height: $header_height;
 	background: #fff;
 	border-left: 1px solid $lightergrey;
+	transition: right 1s ease-in-out;
 
-	&.slide-enter {
+	&.slide-enter,
+	&.slide-exit {
 		right: -100%;
 	}
 
