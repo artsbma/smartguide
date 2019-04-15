@@ -344,8 +344,7 @@ a.button {
   box-shadow: none;
   cursor: pointer;
   transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1), padding 0.25s;
-  -webkit-appearance: none;
-  outline: none; }
+  -webkit-appearance: none; }
   input[type="submit"] .icon *,
   input[type="button"] .icon *,
   button .icon *,

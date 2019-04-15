@@ -18,7 +18,6 @@ a.button {
 	cursor: pointer;
 	transition: background-color .15s cubic-bezier(.33,.66,.66,1), padding .25s;
 	-webkit-appearance: none;
-	outline: none;
 
 	.icon * {
 		fill: $button_color;
@@ -54,7 +53,7 @@ a.button {
 
 		&.button-white {
 			color: #fff;
-			
+
 			&:hover {
 				background: none;
 				color: #fff;
