@@ -21,7 +21,7 @@
     "history": "^3.3.0",
     "html-entities": "^1.2.1",
     "isomorphic-fetch": "^2.2.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-pinch-zoom-pan": "^1.4.5",
